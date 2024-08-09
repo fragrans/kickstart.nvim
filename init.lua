@@ -216,6 +216,10 @@ if not vim.uv.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
+if vim.g.neovide then
+  vim.print(vim.g.neovide_version)
+end
+
 -- [[ Configure and install plugins ]]
 --
 --  To check the current status of your plugins, run
@@ -871,17 +875,17 @@ require('lazy').setup({
     end,
   },
   {
-    "lervag/vimtex",
-    lazy = false,     -- we don't want to lazy load VimTeX
+    'lervag/vimtex',
+    lazy = false, -- we don't want to lazy load VimTeX
     -- tag = "v2.15", -- uncomment to pin to a specific release
     init = function()
       -- VimTeX configuration goes here
-    end
+    end,
   },
   {
-    "Exafunction/codeium.nvim",
-    cmd = "Codeium",
-    build = ":Codeium Auth",
+    'Exafunction/codeium.nvim',
+    cmd = 'Codeium',
+    build = ':Codeium Auth',
     opts = {},
   },
   {
